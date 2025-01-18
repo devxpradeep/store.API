@@ -16,5 +16,5 @@ public interface ToolMapper {
     Tool toEntity(CreateToolRequest createToolRequest);
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdDate", ignore = true)
-    void updateEntityFromDto(UpdateToolRequest updateToolRequest, @MappingTarget Tool tool);
+    Tool updateEntityFromDto(UpdateToolRequest updateToolRequest, @MappingTarget Tool tool);
 }

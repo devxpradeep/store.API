@@ -20,18 +20,7 @@ import java.time.Instant;
 @NoArgsConstructor
 @ToString
 @Document
-public class Tool{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-
-    @CreatedDate
-    @Column(updatable = false, name = "created_date")
-    private Instant createdDate = Instant.now();
-
-    @LastModifiedDate
-    @Column(name = "last_modified_date")
-    private Instant lastModifiedDate = Instant.now();
+public class Tool extends AbstractAuditingEntity<String> {
 
     @Field("name")
     private String name;

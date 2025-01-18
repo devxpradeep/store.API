@@ -77,9 +77,9 @@ public class ToolServiceImpl implements ToolService {
             Optional<Tool> toolFromDb = toolRepository.findById(toolId);
             if(toolFromDb.isPresent()){
                 Tool tool = toolFromDb.get();
-                toolMapper.updateEntityFromDto(updateToolRequest,tool);
-                toolRepository.save(tool);
-                ToolResponse toolResponse = toolMapper.toDto(tool);
+                Tool updated = toolMapper.updateEntityFromDto(updateToolRequest,tool);
+                toolRepository.save(updated);
+                ToolResponse toolResponse = toolMapper.toDto(updated);
                 return responseBuilder.buildSuccessResponse(toolResponse);
             }
             else{
